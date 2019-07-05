@@ -8,7 +8,7 @@ namespace TelerikDemo.Models
 {
     public class CarViewModel
     {
-        public int? Id { get; set; }
+        public int? Id { get; set; } // i used this as by default the telerik datasource submitted a null for id when a new record is added
         public string Make { get; set; }
         public string Model { get; set; }
         public int Year { get; set; }

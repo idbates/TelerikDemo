@@ -32,7 +32,7 @@ namespace TelerikDemo.Models
         public int Year { get; set; }
         public CarTypeEnum CarType { get; set; }
         public bool AirConditioner { get; set; }
-        public DateTime DateModifed { get; set; } = DateTime.Now;
+        public DateTime DateModified { get; set; } = DateTime.Now;
     }
 
 }

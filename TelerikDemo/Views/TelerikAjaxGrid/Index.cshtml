@@ -7,12 +7,7 @@
 
 <div class="form-group row">
     <div class="col-md-12">
-        <div class="text-center">
-
-            <div id="example">
-                <div id="grid"></div>
-            </div>
-        </div>
+        <div id="grid"></div>
     </div>
 </div>
 
@@ -21,12 +16,12 @@
         $(document).ready(function () {
             $("#grid").kendoGrid({
                 dataSource: {
-                    batch: true, // enable batch editing - changes will be saved when the user clicks the "Save changes" button
+                    batch: false, // enable batch editing in that case the grid needs save and cancel commands in its header
                     transport: {
-
+                       
                         create: {
                             url: '@Url.Action("Create")',
-                            contentType: "application/json",
+                            contentType: "application/json",  // must apply this contentType if we want Asp.Net core to bind json!
                             type: "POST"
                         },
                         update: {
@@ -41,30 +36,33 @@
                         },
                         read:
                         {
-                            type: "POST",
+                            type: "POST",  // read CRUD method use POST as more secure
                             contentType: "application/json",
                             url: '@Url.Action("Read")'
                         },
+                        // we must set the parameter map to use Json (which is most compatible accross WebApi and MVC)
                         parameterMap: function (data, operation) {
                             if (operation != "read") {
-                                if(data.models)
+                                if(data.models) // for batch operation data is already an array of objects in the models property
                                     return kendo.stringify(data.models);
+                                else if (data)  // for non-batch operation data is single row object - convert to array for server compatibility
+                                    return kendo.stringify([data]);
                             }
-                            else return kendo.stringify(data);
+                            else return kendo.stringify(data); // a read request has paging/filters/sorting - convert to json
                          }
                         },
                     schema: {
-                        data: "data",
-                        total: "total",
+                        data: "data", // this must be set it tells the grid the property in the response for data.
+                        total: "total", // this is used for paging i think - its bound to the response
                         model: {
-                            id: "id",
-                            fields: {
+                            id: "id", // the id is very important to reference the primary key in the data returned. Out id property in the response data is "id" here so its the same. Without this inserts dont work!
+                            fields: { // kendo supports these data types as native - number can be bound to enums as seen
                                 make: { type: "string" },
                                 model: { type: "string" },
                                 year: { type: "number" },
                                 carType: { type: "number" },
                                 airConditioner: { type: "boolean" },
-                                dateModified: { type: "date" }
+                                dateModified: { type: "date" } // this includes datetime. NOTE: Kendo server filters wont work with DateTimeOffset type in the database!
                             }
                         }
                     },
@@ -83,7 +81,7 @@
                     {
                         field: "year", title: "Year"
                     },
-                    {
+                    { // if we are using enums then this is usefull - you could use Razor Script to build from an enum in the server!
                         field: "carType", title: "Car Type",
                         values: [
                             { text: "SUV", value: 0 },
@@ -99,11 +97,11 @@
                     {
                         field: "airConditioner", title: "Air Con"
                     },
-                    {
+                    { // dates are a bit more tricky if you want UK locale and 24hr clock
                         field: "dateModified", title: "Date Modified",
-                        format: "{0:dd-MM-yyyy HH:mm:ss}",
-                        parseFormats: ["dd/MM/yyyy HH:mm:ss"],
-                        filterable: {
+                        format: "{0:dd-MM-yyyy HH:mm:ss}", // the format to display in the grid
+                        parseFormats: ["dd/MM/yyyy HH:mm:ss"], // the formats to parse for add/update
+                        filterable: { // filters also default to US format - I dont find a global way of changing this yet!
                             ui: function (element) {
                                 element.kendoDateTimePicker({
                                     format: '{0: dd-MM-yyyy HH:mm}',
@@ -113,10 +111,13 @@
                             }
                         }
                     },
-                    { command: ["edit", "destroy"] }
+                    {
+                        command: ["edit", "destroy"] // these are the commands at a row level
+                    }
                 ],
-                toolbar: ["create", "save", "cancel"], // specify toolbar commands
-                messages: {
+                toolbar: ["create"], // for non-batch mode only need a create command to add a new record - one at a time
+                // toolbar: ["create", "save", "cancel"], // use these toolbar commands in batch mode to save a set of changes and even add multiple in one go
+                messages: { // customise the display names of the command used in the grid
                     commands: {
                         cancel: "Cancel changes",
                         canceledit: "Cancel",
@@ -129,10 +130,15 @@
                     }
                 },
                 height: 650,
-                sortable: true,
+
+                // enable sorting , filtering and pageing here - independently of server operation or local - thats controlled at the datasource
+                sortable: true, 
                 filterable: true,
                 pageable: true,
-                editable: true, // enable editing
+
+                // the editable mode defines if you edit by clicking on a cell, or put a row into edit mode. Also kendo can do popup for edits - not demonstrated here
+                editable: "inline", /*https://docs.telerik.com/kendo-ui/api/javascript/ui/grid/configuration/editable*/
+                //editable: "incell", // use this for batch mode
                 pageSize: 15
             });
         });
