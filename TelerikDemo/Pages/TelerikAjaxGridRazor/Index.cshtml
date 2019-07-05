@@ -1,0 +1,95 @@
+﻿@page "{handler?}"
+@model TelerikDemo.Pages.TelerikAjaxRazorGrid.IndexModel
+@{
+    ViewData["Title"] = "Telerik Ajax Grid Razor";
+    Layout = "_Layout";
+}
+
+<h2>Telerik Ajax Grid Razor</h2>
+
+@Html.AntiForgeryToken()
+
+<div class="text-center">
+
+    <div id="example">
+        <div id="grid"></div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#grid").kendoGrid({
+                dataSource: {
+
+                    transport: {
+                        read:
+                        {
+                            type: "POST",
+                            contentType: "application/json",
+                            url: "/TelerikAjaxGridRazor/ListData",
+                            beforeSend: function (req) {
+                                req.setRequestHeader('RequestVerificationToken', $('input[name="__RequestVerificationToken"]').val());
+                            }
+                        },
+                        parameterMap: function (options) {
+                            return kendo.stringify(options);
+                        }
+                    },
+                    schema: {
+                        data: "data",
+                        total: "total",
+                        model: {
+                            fields: {
+                                id: { type: "number" },
+                                make: { type: "string" },
+                                model: { type: "string" },
+                                year: { type: "number" },
+                                carType: { type: "number" },
+                                airConditioner: { type: "boolean" }
+                            }
+                        }
+                    },
+                    pageSize: 15,
+                    serverPaging: true,
+                    serverFiltering: true,
+                    serverSorting: true
+                },
+                columns: [
+                    {
+                        field: "make", title: "Make"
+                    },
+                    {
+                        field: "model", title: "Model"
+                    },
+                    {
+                        field: "year", title: "Year"
+                    },
+                    {
+                        field: "carType", title: "Car Type",
+                        values: [
+                            { text: "SUV", value: 0 },
+                            { text: "Saloon", value: 1 },
+                            { text: "Hatchback", value: 2 },
+                            { text: "Cabrio", value: 3 },
+                            { text: "Estate", value: 4 },
+                            { text: "Coupe", value: 5 },
+                            { text: "MPV", value: 6 },
+                            { text: "Liftback", value: 7 }
+
+                        ]
+                    },
+                    {
+                        field: "airConditioner", title: "Air Con"
+                    },
+                ],
+
+                height: 650,
+                sortable: true,
+                filterable: true,
+                pageable: true,
+                pageSize: 15
+            });
+        });
+    </script>
+}

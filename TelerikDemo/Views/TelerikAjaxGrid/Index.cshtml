@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewData["Title"] = "Telerik Ajax Grid";
+}
+
+<h2>Telerik Ajax Grid</h2>
+
+<div class="form-group row">
+    <div class="col-md-12">
+        <div class="text-center">
+
+            <div id="example">
+                <div id="grid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    batch: true, // enable batch editing - changes will be saved when the user clicks the "Save changes" button
+                    transport: {
+
+                        create: {
+                            url: '@Url.Action("Create")',
+                            contentType: "application/json",
+                            type: "POST"
+                        },
+                        update: {
+                            url: '@Url.Action("Update")',
+                            contentType: "application/json",
+                            type: "POST"
+                        },
+                        destroy: {
+                            url: '@Url.Action("Destroy")',
+                            contentType: "application/json",
+                            type: "POST"
+                        },
+                        read:
+                        {
+                            type: "POST",
+                            contentType: "application/json",
+                            url: '@Url.Action("Read")'
+                        },
+                        parameterMap: function (data, operation) {
+                            if (operation != "read") {
+                                if(data.models)
+                                    return kendo.stringify(data.models);
+                            }
+                            else return kendo.stringify(data);
+                         }
+                        },
+                    schema: {
+                        data: "data",
+                        total: "total",
+                        model: {
+                            id: "id",
+                            fields: {
+                                make: { type: "string" },
+                                model: { type: "string" },
+                                year: { type: "number" },
+                                carType: { type: "number" },
+                                airConditioner: { type: "boolean" },
+                                dateModified: { type: "date" }
+                            }
+                        }
+                    },
+                    pageSize: 15,
+                    serverPaging: true,
+                    serverFiltering: true,
+                    serverSorting: true
+                },
+                columns: [
+                    {
+                        field: "make", title: "Make"
+                    },
+                    {
+                        field: "model", title: "Model"
+                    },
+                    {
+                        field: "year", title: "Year"
+                    },
+                    {
+                        field: "carType", title: "Car Type",
+                        values: [
+                            { text: "SUV", value: 0 },
+                            { text: "Saloon", value: 1 },
+                            { text: "Hatchback", value: 2 },
+                            { text: "Cabrio", value: 3 },
+                            { text: "Estate", value: 4 },
+                            { text: "Coupe", value: 5 },
+                            { text: "MPV", value: 6 },
+                            { text: "Liftback", value: 7 }
+                        ]
+                    },
+                    {
+                        field: "airConditioner", title: "Air Con"
+                    },
+                    {
+                        field: "dateModified", title: "Date Modified",
+                        format: "{0:dd-MM-yyyy HH:mm:ss}",
+                        parseFormats: ["dd/MM/yyyy HH:mm:ss"],
+                        filterable: {
+                            ui: function (element) {
+                                element.kendoDateTimePicker({
+                                    format: '{0: dd-MM-yyyy HH:mm}',
+                                    timeFormat: "HH:mm",
+                                    interval: 30
+                                })
+                            }
+                        }
+                    },
+                    { command: ["edit", "destroy"] }
+                ],
+                toolbar: ["create", "save", "cancel"], // specify toolbar commands
+                messages: {
+                    commands: {
+                        cancel: "Cancel changes",
+                        canceledit: "Cancel",
+                        create: "Add new record",
+                        destroy: "Delete",
+                        edit: "Edit",
+                        save: "Save changes",
+                        select: "Select",
+                        update: "Update"
+                    }
+                },
+                height: 650,
+                sortable: true,
+                filterable: true,
+                pageable: true,
+                editable: true, // enable editing
+                pageSize: 15
+            });
+        });
+    </script>
+}
