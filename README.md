@@ -4,7 +4,7 @@
 
 # Grid Dynamic Filtering and Paging
 #
-# https://github.com/linmasaki/Kendo.DynamicLinqCore 
+ https://github.com/linmasaki/Kendo.DynamicLinqCore 
 
 # Theming the grid
 
