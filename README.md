@@ -10,6 +10,8 @@ Demo telerik kendo grid project that fully uses Ajax CRUD, on a sizeable 700 row
  The overview of the grid with examples can be found here
  https://docs.telerik.com/kendo-ui/controls/data-management/grid/overview
  
+ The kendo DataSource overview can be found here https://docs.telerik.com/kendo-ui/framework/datasource/overview
+ 
  The API documentation for the Grid can be found here
  https://docs.telerik.com/kendo-ui/api/javascript/ui/grid
  
