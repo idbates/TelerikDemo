@@ -4,6 +4,7 @@ Demo telerik kendo grid project that fully uses Ajax CRUD, on a sizeable 700 row
 
 # Grid Dynamic Filtering and Paging
 
+ https://www.telerik.com/blogs/kendo-ui-open-sources-dynamic-linq-helpers
  https://github.com/linmasaki/Kendo.DynamicLinqCore 
 
 # Theming the grid
