@@ -16,7 +16,6 @@ Demo telerik kendo grid project that fully uses Ajax CRUD, on a sizeable 700 row
  The kendo DataSource is a key component used by the grid
  https://docs.telerik.com/kendo-ui/api/javascript/data/datasource
  
- 
 # Grid Dynamic Filtering and Paging
 
  https://www.telerik.com/blogs/kendo-ui-open-sources-dynamic-linq-helpers
