@@ -2,193 +2,60 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div >
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-    <div id="example">
-        <table id="grid">
-            <colgroup>
-                <col />
-                <col />
-                <col style="width:110px" />
-                <col style="width:120px" />
-                <col style="width:130px" />
-            </colgroup>
-            <thead>
-                <tr>
-                    <th data-field="make">Car Make</th>
-                    <th data-field="model">Car Model</th>
-                    <th data-field="year">Year</th>
-                    <th data-field="category">Category</th>
-                    <th data-field="airconditioner">Air Conditioner</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Volvo</td>
-                    <td>S60</td>
-                    <td>2010</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Audi</td>
-                    <td>A4</td>
-                    <td>2002</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>BMW</td>
-                    <td>535d</td>
-                    <td>2006</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>BMW</td>
-                    <td>320d</td>
-                    <td>2006</td>
-                    <td>Saloon</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>VW</td>
-                    <td>Passat</td>
-                    <td>2007</td>
-                    <td>Saloon</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>VW</td>
-                    <td>Passat</td>
-                    <td>2008</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Peugeot</td>
-                    <td>407</td>
-                    <td>2006</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Honda</td>
-                    <td>Accord</td>
-                    <td>2008</td>
-                    <td>Saloon</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>Alfa Romeo</td>
-                    <td>159</td>
-                    <td>2008</td>
-                    <td>Saloon</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>Nissan</td>
-                    <td>Almera</td>
-                    <td>2001</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Mitsubishi</td>
-                    <td>Lancer</td>
-                    <td>2008</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Opel</td>
-                    <td>Vectra</td>
-                    <td>2008</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Toyota</td>
-                    <td>Avensis</td>
-                    <td>2006</td>
-                    <td>Saloon</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>Toyota</td>
-                    <td>Avensis</td>
-                    <td>2008</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Toyota</td>
-                    <td>Avensis</td>
-                    <td>2008</td>
-                    <td>Saloon</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Audi</td>
-                    <td>Q7</td>
-                    <td>2007</td>
-                    <td>SUV</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Hyundai</td>
-                    <td>Santa Fe</td>
-                    <td>2012</td>
-                    <td>SUV</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Hyundai</td>
-                    <td>Santa Fe</td>
-                    <td>2013</td>
-                    <td>SUV</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Nissan</td>
-                    <td>Qashqai</td>
-                    <td>2007</td>
-                    <td>SUV</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Mercedez</td>
-                    <td>B Class</td>
-                    <td>2007</td>
-                    <td>Hatchback</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Lancia</td>
-                    <td>Ypsilon</td>
-                    <td>2006</td>
-                    <td>Hatchback</td>
-                    <td>Yes</td>
-                </tr>
-            </tbody>
-        </table>
+    <h3>Telerik Ajax Grid Demo</h3>
 
+    <p>
+        Demo telerik kendo grid project that fully uses Ajax CRUD, on a sizeable 700 row dataset, uses minimal telerik css/js and only one third party .net core version of an open sourced telerik serverside API for dynamic paging/filtering and sorting using Linq.
+    </p>
 
+    <p>
+        Rather than including the full monolithic kendo ui framework the samples use a minimal js file built using a custom telerik build file see: <a href="https://www.telerik.com/download/custom-download">https://www.telerik.com/download/custom-download</a>
+
+                                                                                                                                     <img src="~/builder.png" />
+    </p>
+
+    <h3>Telerik Documentation</h3>
+
+    <p>
+        Telerik provides their own demo pages here
+        <a href="https://demos.telerik.com/kendo-ui/grid/index">https://demos.telerik.com/kendo-ui/grid/index</a>
+    </p>
+
+    <div>
+        The overview of the grid with examples can be found here
+        <a href="https://docs.telerik.com/kendo-ui/controls/data-management/grid/overview">https://docs.telerik.com/kendo-ui/controls/data-management/grid/overview</a>
     </div>
+
+    <p>
+        The kendo DataSource overview can be found here <a href="https://docs.telerik.com/kendo-ui/framework/datasource/overview">https://docs.telerik.com/kendo-ui/framework/datasource/overview</a>
+    </p>
+
+    <p>
+        The API documentation for the Grid can be found here
+        <a href="https://docs.telerik.com/kendo-ui/api/javascript/ui/grid">https://docs.telerik.com/kendo-ui/api/javascript/ui/grid</a>
+    </p>
+
+    <p>
+        The kendo DataSource is a key component used by the grid
+        <a href="https://docs.telerik.com/kendo-ui/api/javascript/data/datasource">https://docs.telerik.com/kendo-ui/api/javascript/data/datasource</a>
+    </p>
+
+    <h3> Grid Dynamic Filtering and Paging</h3>
+
+    <p>
+        <a href="https://www.telerik.com/blogs/kendo-ui-open-sources-dynamic-linq-helpers">https://www.telerik.com/blogs/kendo-ui-open-sources-dynamic-linq-helpers</a>
+        <br/>
+        <a href=" https://github.com/linmasaki/Kendo.DynamicLinqCore">https://github.com/linmasaki/Kendo.DynamicLinqCore</a>
+    </p>
+
+    <h3>Theming the grid</h3>
+
+    <p>
+        Telerik Sass Theme Builder <a href="https://themebuilder.telerik.com/kendo-ui" >https://themebuilder.telerik.com/kendo-ui</a>
+    </p>
+
 </div>
 
-@section Scripts{ 
-    <script>
-        $(document).ready(function () {
-            $("#grid").kendoGrid({
-                height: 550,
-                sortable: true,
-                filterable: true, 
-                selectable: "multiple cell",
-                allowCopy: true,
-            });
-        });
-    </script>
-}
