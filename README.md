@@ -4,6 +4,8 @@ Demo telerik kendo grid project that fully uses Ajax CRUD, on a sizeable 700 row
 
 Rather than including the full monolithic kendo ui framework the samples use a minimal js file built using a custom telerik build file see: https://www.telerik.com/download/custom-download
 
+![alt text](https://github.com/idbates/TelerikDemo/blob/master/TelerikDemo/wwwroot/builder.png)
+
 # Telerik Documentation
 
  Telerik provides their own demo pages here
