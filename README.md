@@ -2,6 +2,8 @@
 
 Demo telerik kendo grid project that fully uses Ajax CRUD, on a sizeable 700 row dataset, uses minimal telerik css/js and only one third party .net core version of an open sourced telerik serverside API for dynamic paging/filtering and sorting using Linq.
 
+Rather than including the full monolithic kendo ui framework the samples use a minimal js file built using a custom telerik build file see: https://www.telerik.com/download/custom-download
+
 # Telerik Documentation
 
  Telerik provides their own demo pages here
