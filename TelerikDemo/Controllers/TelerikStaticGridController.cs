@@ -8,7 +8,7 @@ using TelerikDemo.Models;
 
 namespace TelerikDemo.Controllers
 {
-    public class TelerikAjaxStaticGridController : Controller
+    public class TelerikStaticGridController : Controller
     {
         public IActionResult Index()
         {
