@@ -1,7 +1,7 @@
 # Telerik Demo
 
-## Notes
-The example used a 3rd party library called using Kendo.DynamicLinqCore; other options might be available now. At the time teleriks own open sourced dynamic linq code didnt work an is an un-maintaned repo (I think). Alternative might require dependencies on Teleriks Kendo MVC stack
+Notes - 
+This example used a 3rd party library called using Kendo.DynamicLinqCore; other options might be available now. At the time teleriks own open sourced dynamic linq code didnt work an is an un-maintaned repo. Alternative might require dependencies on Teleriks Kendo MVC stack
 
 Demo telerik kendo grid project that fully uses Ajax CRUD, on a sizeable 700 row dataset, uses minimal telerik css/js and only one third party .net core version of an open sourced telerik serverside API for dynamic paging/filtering and sorting using Linq.
 
